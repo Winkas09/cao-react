@@ -1,7 +1,13 @@
 const LargeLink = (props) => {
+  const { classes, url, children } = props;
+
+  if (!url || !children) {
+    return;
+  }
+
   return (
-    <a href={props.url} className="large-link">
-      {props.children}
+    <a href={url} className={`large-link ${classes ? classes : ""}`}>
+      {children}
     </a>
   );
 };
