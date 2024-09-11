@@ -100,9 +100,21 @@ body {
   gap: 30px;
 }
 
-.video-wrapper {
+.video-list.adjusted {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  justify-content: space-around;
+}
+
+/* .video-wrapper {
   display: flex;
   flex-direction: column-reverse;
+} */
+
+.video-wrapper {
+  margin: 10px;
+  flex: 1 1 45%;
 }
 
 .video-wrapper:first-of-type {
@@ -229,8 +241,12 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .video-wrapper {
+  /* .video-wrapper {
     grid-column-end: span 2;
+  } */
+
+  .video-wrapper {
+    flex: 1 1 100%;
   }
 }
 
