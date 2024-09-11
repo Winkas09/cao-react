@@ -1,12 +1,12 @@
 import NewsSection from "./NewsSection";
 import VideoSection from "./VideoSection";
 
-const MainSection = () => {
+const MainSection = ({ newsData, videoSectionData }) => {
   return (
     <main>
       <h1 className="page-title">Naujienos</h1>
-      <NewsSection />
-      <VideoSection />
+      <NewsSection newsData={newsData} />
+      <VideoSection data={videoSectionData} />
     </main>
   );
 };

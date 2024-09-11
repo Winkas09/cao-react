@@ -5,7 +5,7 @@ const EventItem = (props) => {
     <div className="event-item">
       <a href="/#">
         {imageSrc && (
-          <div className="event-item-image-wrapp">
+          <div className="event-item-image-wrapper">
             <img src="https://codeacademy.lt/wp-content/uploads/2024/06/0530_CA_event-768x432.png" alt="" className="event-item-image" />
           </div>
         )}

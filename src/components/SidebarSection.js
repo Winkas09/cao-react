@@ -1,9 +1,9 @@
 import EventsSection from "./EventsSection";
 import PodcastSection from "./PodcastSection";
-const SidebarSection = () => {
+const SidebarSection = ({ podcastSectionData }) => {
   return (
     <aside>
-      <PodcastSection />
+      <PodcastSection data={podcastSectionData} />
       <EventsSection />
     </aside>
   );
