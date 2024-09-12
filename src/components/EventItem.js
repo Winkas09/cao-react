@@ -1,6 +1,8 @@
 const EventItem = (props) => {
   const { imageSrc, location, day, month, title } = props;
 
+  const isTBA = !location && !day && !month && !title;
+
   return (
     <div className="event-item">
       <a href="/#">
@@ -14,15 +16,19 @@ const EventItem = (props) => {
           <div className="event-date">
             {day && month ? (
               <>
-                <span className="event-day">30</span>
-                <span className="event-month">Geg</span>
+                <span className="event-day">{day}</span>
+                <span className="event-month">{month}</span>
               </>
             ) : (
               <span className="event-month">Bus paskelbta</span>
             )}
           </div>
           <div className="event-item-content">
-            <span className="event-location">{location ? location : "Event will be hosted Online"} </span>
+            {isTBA ? (
+              <span className="event-location">To be announced</span>
+            ) : (
+              <span className="event-location">{location ? location : "Event will be hosted Online"}</span>
+            )}
             {title && <h3 className="event-title">{title}</h3>}
           </div>
         </div>
