@@ -1,0 +1,150 @@
+/* Basic styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: grey;
+  color: black;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.nav-button:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+}
+
+.language {
+  position: relative;
+}
+
+.language button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.language button:hover {
+  background-color: #555;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #444;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.language-dropdown button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.language-dropdown button:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+.skambinti-button {
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 800px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 180px;
+    background-color: grey;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    padding: 10px 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .language-dropdown {
+    width: 120px;
+    left: 0;
+    right: 0;
+  }
+
+  .language-dropdown button {
+    width: 100%;
+    text-align: center;
+  }
+}

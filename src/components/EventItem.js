@@ -1,3 +1,5 @@
+import "./EventItem.css";
+
 const EventItem = (props) => {
   const { imageSrc, location, day, month, title } = props;
 

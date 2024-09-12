@@ -1,6 +1,8 @@
 import MainSection from "../components/MainSection";
 import SidebarSection from "../components/SidebarSection";
 import "./NewsPage.css";
+import HeaderSection from "../components/HeaderSection";
+import FooterSection from "../components/FooterSection";
 
 const NEWS_DATA = [
   {
@@ -134,10 +136,12 @@ const EVENTS_DATA = {
 const NewsPage = () => {
   return (
     <div className="container">
+      <HeaderSection />
       <div className="page-content">
         <MainSection newsData={NEWS_DATA} videoSectionData={VIDEO_SECTION_DATA} />
         <SidebarSection podcastSectionData={PODCASTS_SECTION_DATA} eventsData={EVENTS_DATA} />
       </div>
+      <FooterSection />
     </div>
   );
 };

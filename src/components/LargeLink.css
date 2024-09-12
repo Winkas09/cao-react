@@ -1,0 +1,10 @@
+.large-link {
+  background-color: white;
+  color: black;
+  font-size: 35px;
+  font-weight: 700;
+  text-decoration: none;
+  display: block;
+  padding: 30px;
+  border-radius: 15px;
+}

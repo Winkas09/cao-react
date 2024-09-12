@@ -1,3 +1,5 @@
+import "./NewsItem.css";
+
 const NewsItem = (props) => {
   const { title, date, category, url, imageSrc } = props;
 

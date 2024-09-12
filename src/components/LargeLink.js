@@ -1,3 +1,5 @@
+import "./LargeLink.css";
+
 const LargeLink = (props) => {
   const { classes, url, children } = props;
 

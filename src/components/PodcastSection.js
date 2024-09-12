@@ -1,4 +1,5 @@
 import PodcastItem from "./PodcastItem";
+import "./PodcastSection.css";
 
 const PodcastsSection = ({ data }) => {
   const { sectionTitle, podcastsList } = data;
@@ -13,7 +14,13 @@ const PodcastsSection = ({ data }) => {
 
       <div className="podcasts-list">
         {podcastsList.map((item, index) => (
-          <PodcastItem key={index} title={item.title} date={item.date} length={item.length} image={item.image} />
+          <PodcastItem
+            key={index}
+            title={item.title}
+            date={item.date}
+            length={item.length}
+            image={item.image}
+          />
         ))}
       </div>
     </section>

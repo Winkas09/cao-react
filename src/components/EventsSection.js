@@ -14,7 +14,14 @@ const EventsSection = ({ data }) => {
 
       <div className="events-list">
         {eventsList.map((item, index) => (
-          <EventItem key={index} title={item.title} location={item.location} day={item.day} month={item.month} imageSrc={item.imageSrc} />
+          <EventItem
+            key={index}
+            title={item.title}
+            location={item.location}
+            day={item.day}
+            month={item.month}
+            imageSrc={item.imageSrc}
+          />
         ))}
       </div>
       <LargeLink url="/#">Daugiau</LargeLink>
