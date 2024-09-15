@@ -26,8 +26,8 @@ const EventItem = (props) => {
                 <span className="event-month">{month}</span>
               </>
             ) : (
-              <span className="event-month" style={{ fontSize: "13px" }}>
-                Bus paskelbta
+              <span className="event-month-unknown" style={{ fontSize: "13px" }}>
+                Nežinoma
               </span>
             )}
           </div>

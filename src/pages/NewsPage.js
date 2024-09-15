@@ -3,6 +3,9 @@ import SidebarSection from "../components/SidebarSection";
 import "./NewsPage.css";
 import HeaderSection from "../components/HeaderSection";
 import FooterSection from "../components/FooterSection";
+import facebookIcon from "../assets/facebook.png";
+import instagramIcon from "../assets/instagram.png";
+import twitterIcon from "../assets/twitter.png";
 
 const NEWS_DATA = [
   {
@@ -133,6 +136,29 @@ const EVENTS_DATA = {
   ],
 };
 
+const FOOTER_DATA = {
+  navLinksColumn1: [
+    "Studentams",
+    "Karjeros centras",
+    "Programos",
+    "Užt 100% finansavimas",
+    "Programavimo kalbos",
+    "Apie mus",
+    "Naujienos",
+    "Karjer-We are hiring!",
+    "Verslui",
+    "ES parama",
+    "IT būreliai mokesleiviams",
+    "Kontaktai",
+  ],
+  navLinksColumn2: ["Vilnius", "Upės g.21, Vilnius", "Antakalnio g. 17, Vilnius"],
+  socialLinks: [
+    { href: "https://facebook.com", icon: facebookIcon },
+    { href: "https://twitter.com", icon: twitterIcon },
+    { href: "https://instagram.com", icon: instagramIcon },
+  ],
+};
+
 const NewsPage = () => {
   return (
     <div className="container">
@@ -141,7 +167,7 @@ const NewsPage = () => {
         <MainSection newsData={NEWS_DATA} videoSectionData={VIDEO_SECTION_DATA} />
         <SidebarSection podcastSectionData={PODCASTS_SECTION_DATA} eventsData={EVENTS_DATA} />
       </div>
-      <FooterSection />
+      <FooterSection footerData={FOOTER_DATA} />
     </div>
   );
 };
