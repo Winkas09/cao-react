@@ -136,6 +136,19 @@ const EVENTS_DATA = {
   ],
 };
 
+const HEADER_DATA = {
+  logo: "https://codeacademy.lt/wp-content/themes/codeacademy/dist/images/codeacademy-black.svg",
+  navLinks: [
+    "Studentams",
+    "Karjeros centras",
+    "Programos",
+    "IT testas",
+    "Apie mus",
+    "Verslui",
+    "Kontaktai",
+  ],
+};
+
 const FOOTER_DATA = {
   navLinksColumn1: [
     "Studentams",
@@ -162,7 +175,7 @@ const FOOTER_DATA = {
 const NewsPage = () => {
   return (
     <div className="container">
-      <HeaderSection />
+      <HeaderSection headerData={HEADER_DATA} />
       <div className="page-content">
         <MainSection newsData={NEWS_DATA} videoSectionData={VIDEO_SECTION_DATA} />
         <SidebarSection podcastSectionData={PODCASTS_SECTION_DATA} eventsData={EVENTS_DATA} />

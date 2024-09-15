@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./HeaderSection.css";
 
-const HeaderSection = () => {
-  const navLinks = [
-    "Studentams",
-    "Karjeros centras",
-    "Programos",
-    "IT testas",
-    "Apie mus",
-    "Verslui",
-    "Kontaktai",
-  ];
+const HeaderSection = ({ headerData }) => {
+  const { logo, navLinks } = headerData;
 
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
@@ -40,10 +32,7 @@ const HeaderSection = () => {
   return (
     <nav className="navbar">
       <a href="/" className="logo">
-        <img
-          src="https://codeacademy.lt/wp-content/themes/codeacademy/dist/images/codeacademy-black.svg"
-          alt="Logo"
-        />
+        <img src={logo} alt="Logo" />
       </a>
       <ul className={`nav-links ${isNavOpen ? "open" : ""}`}>
         {navLinks.map((link, index) => (
