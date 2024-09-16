@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./CounterPage.css";
 
 const CounterPage = () => {
   const [num, setNum] = useState(5);
@@ -74,11 +75,19 @@ const CounterPage = () => {
         ))}
       </ul>
       <div>
-        <h3>Statistika:</h3>
-        <p>Vidurkis : {scores.length > 0 ? calculateAverage(scores) : "N/A"}</p>
-        <p>Mediana : {scores.length > 0 ? calculateMedian(scores) : "N/A"} </p>
-        <p>Auksciausias balas : {scores.length > 0 ? findHighestScore(scores) : "N/A"}</p>
-        <p>Zemiausias balas : {scores.length > 0 ? findLowestScore(scores) : "N/A"}</p>
+        <h2>Statistika:</h2>
+        <p style={{ fontWeight: "bold", color: "orange" }}>
+          Vidurkis : {scores.length > 0 ? calculateAverage(scores) : "Nežinoma"}
+        </p>
+        <p style={{ fontWeight: "bold", color: "purple" }}>
+          Mediana : {scores.length > 0 ? calculateMedian(scores) : "Nežinoma"}{" "}
+        </p>
+        <p style={{ fontWeight: "bold", color: "green" }}>
+          Auksciausias balas : {scores.length > 0 ? findHighestScore(scores) : "Nežinoma"}
+        </p>
+        <p style={{ fontWeight: "bold", color: "blue" }}>
+          Zemiausias balas : {scores.length > 0 ? findLowestScore(scores) : "Nežinoma"}
+        </p>
       </div>
     </div>
   );

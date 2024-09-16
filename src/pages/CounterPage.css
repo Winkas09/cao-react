@@ -1,0 +1,106 @@
+/* CounterPage.css */
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 2em;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.counter-value.red {
+  color: red;
+}
+
+.counter-value.blue {
+  color: blue;
+}
+
+.counter-value.green {
+  color: green;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+input[type="number"] {
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 1em;
+}
+
+.scores-section {
+  margin-top: 20px;
+}
+
+.scores-section h2 {
+  margin-bottom: 10px;
+}
+
+.scores-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.scores-section li {
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scores-section li.red {
+  color: red;
+}
+
+.scores-section li.blue {
+  color: blue;
+}
+
+.scores-section li.green {
+  color: green;
+}
+
+.statistics-section {
+  margin-top: 20px;
+}
+
+.statistics-section h3 {
+  margin-bottom: 10px;
+}
+
+.statistics-section p {
+  font-weight: bold;
+  margin: 5px 0;
+  font-size: 1.2em;
+}
+
+.statistics-section .average {
+  color: orange;
+}
+
+.statistics-section .median {
+  color: purple;
+}
+
+.statistics-section .highest {
+  color: green;
+}
+
+.statistics-section .lowest {
+  color: blue;
+}
+
+li {
+  list-style-type: none;
+  font-size: 1.4em;
+}
+
+p {
+  font-size: 1.2em;
+}
