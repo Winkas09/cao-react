@@ -1,93 +1,93 @@
 import { useState } from "react";
 import "./CounterPage.css";
 
+const CounterButton = ({ label, onClick, disabled }) => (
+  <button onClick={onClick} disabled={disabled}>
+    {label}
+  </button>
+);
+
 const CounterPage = () => {
   const [num, setNum] = useState(5);
-  //   pridedame setScores funkcija kuri leidzia pakeisti skaiciu i kita skaiciu ir ji atvaizduoja skaiciu
-
   const [scores, setScores] = useState([]);
 
-  const plus1Handler = () => setNum(num + 1);
-  const minus1Handler = () => setNum(num - 1);
+  // Handlers for updating the counter
+  const updateNum = (value) => setNum((prevNum) => Math.min(10, Math.max(0, prevNum + value)));
   const resetHandler = () => setNum(5);
-  const plus5Handler = () => setNum(num + 5);
-  const minus5Handler = () => setNum(num - 5);
-  const minus2Handler = () => setNum(num - 2);
-  const plus2Handler = () => setNum(num + 2);
-  // pridedame nauja funkcija inputChangeHandler kuri leidzia ivesti skaiciu i input lauka ir ji atvaizduoja skaiciu
-  const inputChangeHandler = (event) => setNum(parseInt(event.target.value));
-  //
-  const addScoreHandler = () => setScores([num, ...scores]);
+  const inputChangeHandler = (event) => {
+    const value = Number(event.target.value);
+    if (!isNaN(value)) {
+      setNum(Math.min(10, Math.max(0, value)));
+    }
+  };
+
+  // Handlers for managing scores
+  const addScoreHandler = () => setScores((prevScores) => [num, ...prevScores]);
   const deleteAllScoresHandler = () => setScores([]);
-  const deleteScoreHandler = (index) => setScores(scores.filter((_, i) => i !== index));
+  const deleteScoreHandler = (index) => {
+    setScores((prevScores) => prevScores.filter((scoreIndex) => scoreIndex !== index));
+  };
 
-  // pridedame statistika
-
+  // Statistics functions
   const calculateAverage = (scores) => {
+    if (scores.length === 0) return "N/A";
     const sum = scores.reduce((acc, score) => acc + score, 0);
     return (sum / scores.length).toFixed(2);
   };
 
   const calculateMedian = (scores) => {
-    scores.sort((a, b) => a - b);
-    const middle = Math.floor(scores.length / 2);
-    return scores.length % 2 === 0 ? (scores[middle - 1] + scores[middle]) / 2 : scores[middle];
+    if (scores.length === 0) return "N/A";
+    const sortedScores = [...scores].sort((a, b) => a - b);
+    const middle = Math.floor(sortedScores.length / 2);
+    return sortedScores.length % 2 === 0
+      ? (sortedScores[middle - 1] + sortedScores[middle]) / 2
+      : sortedScores[middle];
   };
 
-  const findHighestScore = (scores) => Math.max(...scores);
-  const findLowestScore = (scores) => Math.min(...scores);
+  const findHighestScore = (scores) => (scores.length === 0 ? "N/A" : Math.max(...scores));
+  const findLowestScore = (scores) => (scores.length === 0 ? "N/A" : Math.min(...scores));
+
+  // Function to determine the color based on the score
+  const getColor = (score) => {
+    if (score < 5) return "red";
+    if (score < 6) return "blue";
+    return "green";
+  };
 
   return (
     <div>
-      <h3 style={{ color: num < 5 ? "red" : num < 6 ? "blue" : "green" }}>{num}</h3>
+      <h3 className={`counter-value ${getColor(num)}`}>{num}</h3>
 
-      <button onClick={plus1Handler} disabled={num > 9}>
-        +1
-      </button>
-      <button onClick={plus2Handler} disabled={num > 8}>
-        +2
-      </button>
-      <button onClick={plus5Handler} disabled={num > 5}>
-        +5
-      </button>
-      <button onClick={minus1Handler} disabled={num <= 1}>
-        -1
-      </button>
-      <button onClick={minus2Handler} disabled={num <= 2}>
-        -2
-      </button>
-      <button onClick={minus5Handler} disabled={num <= 5}>
-        -5
-      </button>
+      <CounterButton label="+1" onClick={() => updateNum(1)} disabled={num >= 10} />
+      <CounterButton label="+2" onClick={() => updateNum(2)} disabled={num > 8} />
+      <CounterButton label="+5" onClick={() => updateNum(5)} disabled={num > 5} />
+      <CounterButton label="-1" onClick={() => updateNum(-1)} disabled={num <= 0} />
+      <CounterButton label="-2" onClick={() => updateNum(-2)} disabled={num < 2} />
+      <CounterButton label="-5" onClick={() => updateNum(-5)} disabled={num < 5} />
       <button onClick={resetHandler}>Reset</button>
 
-      {/* parseint */}
-      <input type="number" value={num} onChange={inputChangeHandler} />
-      <h2>Balai:</h2>
-      <button onClick={addScoreHandler}>Pridėti balą</button>
-      <button onClick={deleteAllScoresHandler}>Ištrinti visus</button>
+      <input type="number" value={num} onChange={inputChangeHandler} min="0" max="10" />
 
-      <ul>
-        {scores.map((score, index) => (
-          <li key={index} style={{ color: score < 5 ? "red" : score < 6 ? "blue" : "green" }}>
-            {score} <button onClick={() => deleteScoreHandler(index)}>Ištrinti</button>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <h2>Statistika:</h2>
-        <p style={{ fontWeight: "bold", color: "orange" }}>
-          Vidurkis : {scores.length > 0 ? calculateAverage(scores) : "Nežinoma"}
-        </p>
-        <p style={{ fontWeight: "bold", color: "purple" }}>
-          Mediana : {scores.length > 0 ? calculateMedian(scores) : "Nežinoma"}{" "}
-        </p>
-        <p style={{ fontWeight: "bold", color: "green" }}>
-          Auksciausias balas : {scores.length > 0 ? findHighestScore(scores) : "Nežinoma"}
-        </p>
-        <p style={{ fontWeight: "bold", color: "blue" }}>
-          Zemiausias balas : {scores.length > 0 ? findLowestScore(scores) : "Nežinoma"}
-        </p>
+      <div className="scores-section">
+        <h2>Scores:</h2>
+        <button onClick={addScoreHandler}>Add Score</button>
+        <button onClick={deleteAllScoresHandler}>Delete All</button>
+
+        <ul>
+          {scores.map((score, index) => (
+            <li key={index} className={getColor(score)}>
+              {score} <button onClick={() => deleteScoreHandler(index)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="statistics-section">
+        <h3>Statistics:</h3>
+        <p className="average">Average: {calculateAverage(scores)}</p>
+        <p className="median">Median: {calculateMedian(scores)}</p>
+        <p className="highest">Highest Score: {findHighestScore(scores)}</p>
+        <p className="lowest">Lowest Score: {findLowestScore(scores)}</p>
       </div>
     </div>
   );
